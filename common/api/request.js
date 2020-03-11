@@ -1,6 +1,7 @@
 export default {
 	common: {
-		baseUrl: "http://192.168.1.101:3000/api",
+		// baseUrl: "http://192.168.1.101:3000/api",
+		baseUrl: "http://192.168.0.112:3000/api",
 		data: {},
 		header: {
 			"Content-Type": "application/json",

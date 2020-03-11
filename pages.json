@@ -53,7 +53,12 @@
 			}
         },{
             "path" : "pages/my/my",
-            "style" : {}
+            "style" : {
+				"app-plus":{
+					"scrollIndicator":"none",
+					"titleNView":false
+				}
+			}
         },{
             "path" : "pages/search/search",
             "style" : {
