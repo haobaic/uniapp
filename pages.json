@@ -53,7 +53,12 @@
 			}
         },{
             "path" : "pages/my/my",
-            "style" : {}
+            "style" : {
+				"app-plus":{
+					"scrollIndicator":"none",
+					"titleNView":false
+				}
+			}
         },{
             "path" : "pages/search/search",
             "style" : {
@@ -124,6 +129,49 @@
 								"type":"menu"
 							},{
 								"type":"share"
+							}
+						]
+					}
+				}
+			}
+        }
+        ,{
+            "path" : "pages/my-config/my-config",
+            "style" : {	
+				"navigationBarTitleText": "设置",
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"app-plus":{
+					
+				}
+			}
+        }
+        ,{
+            "path" : "pages/my-path-list/my-path-list",
+            "style" : {
+            	"navigationBarTitleText": "地址管理",
+				"navigationBarBackgroundColor":"#FFFFFF",
+            	"app-plus":{
+            		 "titleNView" : {  
+            		                        "splitLine":{"color":"#d8d8d8"}  
+            		                    }  
+            	}
+            }
+        }
+        ,{
+            "path" : "pages/my-add-path/my-add-path",
+            "style" : {
+				"navigationBarTitleText": "新增地址",
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"app-plus":{
+					"scrollIndicator":"none",
+					"titleNView":{
+						"buttons":[
+							{
+								"float":"right",
+								"color":"#636263",
+								"text":"保存",
+								"fontSize":"16px",
+								"width":"60px"
 							}
 						]
 					}

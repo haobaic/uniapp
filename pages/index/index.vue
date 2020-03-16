@@ -103,7 +103,7 @@
 			
 			uni.getSystemInfo({
 				success: (res) => {
-					this.clentHeight = res.windowHeight - uni.upx2px(80)-this.getClientHeight();
+					this.clentHeight = res.windowHeight -this.getClientHeight();
 				}
 			})
 			
@@ -170,9 +170,9 @@
 				const res = uni.getSystemInfoSync();
 				const system = res.platform;
 				if( system ==='ios' ){
-					return res.statusBarHeight-4;
+					return res.statusBarHeight-44;
 				}else if( system==='android' ){
-					return 48+res.statusBarHeight;
+					return res.statusBarHeight;
 				}else{
 					return 0;
 				}
