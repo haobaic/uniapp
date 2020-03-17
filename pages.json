@@ -135,6 +135,13 @@
 				}
 			}
         }
+        ,{
+            "path" : "pages/my-order/my-order",
+            "style" : {
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"navigationBarTitleText": "我的订单"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

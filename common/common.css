@@ -9,7 +9,10 @@
 .f-active-color{
 	color: #49BDFB;
 }
-
+/* 默认背景色 */
+.bg-active-color{
+	background-color: #F7F7F7;
+}
 /* 主题色 */
 .bg-color {
 	background-color: #42B7FB;

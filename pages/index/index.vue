@@ -1,6 +1,5 @@
 <template>
 	<view class='index'>
-		
 		<scroll-view scroll-x="true" class='scroll-content' :scroll-into-view='scrollIntoIndex'>
 			<view
 				:id="'top'+index"
