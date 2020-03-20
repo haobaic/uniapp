@@ -59,7 +59,7 @@
 				</view>
 				<view class='pop-num'>
 					<view>购买数量</view>
-					<UniNumberBox min='1' :value='num' @change="changeNumber" ></UniNumberBox>
+					<UniNumberBox :min="MinNum" :value='num' @change="changeNumber" ></UniNumberBox>
 				</view>
 				<view class='pop-sub' @tap='addCart'>
 					确定
@@ -80,6 +80,7 @@
 			return {
 				isShow: false,
 				num:1,
+				MinNum:1,
 				animationData: {},
 				goodsContent:{},
 				swiperList: [{
@@ -208,7 +209,6 @@
 			},
 			changeNumber(val){
 				this.num=val;
-				console.log(val)
 			},
 			//点击确定
 			addCart(){

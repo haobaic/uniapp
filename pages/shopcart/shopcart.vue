@@ -21,7 +21,7 @@
 						<template v-else>
 							<uniNumberBox 
 							:value='item.num'
-							min='1'
+							:min='MinNum'
 							@change='changeNumber($event,index)'
 							>
 								
@@ -39,7 +39,7 @@
 			<template v-if='!isNavBar'>
 				<view class='foot-total'>
 					<view class='foot-count'>合计：<text class='f-active-color'>¥{{totalCount.pprice}}</text></view>
-					<view class='foot-num'>结算({{totalCount.num}})</view>
+					<view class='foot-num' @tap="goConfirmOrder()">结算({{totalCount.num}})</view>
 				</view>
 			</template>
 			<template v-else>
@@ -48,6 +48,7 @@
 					<view class='foot-num' @tap='delFGoodsFn()'>删除</view>
 				</view>
 			</template>
+			
 		</view>
 		</template>
 		<template v-else>
@@ -56,6 +57,7 @@
 			<view class="shop-else-list">
 				购物车是空的
 			</view>
+			
 		</template>
 	</view>
 </template>
@@ -67,6 +69,7 @@
 		data() {
 			return {
 				isNavBar: false,
+				MinNum:1
 			}
 		},
 		computed:{
@@ -84,6 +87,12 @@
 		   ...mapMutations(['selectItem']),
 		   changeNumber(value,index){
 			   this.list[index].num=value;
+		   },
+			//确认订单   
+		   goConfirmOrder(){
+			   uni.navigateTo({
+			   	url:"../confirm-order/confirm-order"
+			   })
 		   }
 		}
 	}
