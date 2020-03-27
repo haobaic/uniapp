@@ -5,17 +5,17 @@
 				<scroll-view>
 					<view class='login-tel'>
 						<view class='tel-main'>
-							<view class='close'>
+							<view class='close' @tap="goBack()">
 								<image class='close-img' src="../../static/img/close.png" mode=""></image>
 							</view>
 							<view class='logo'>
 								<image class='logo-img' src="../../static/img/logo.jpg" mode=""></image>
 							</view>
-							<view class='tel'>手机号注册</view>
+							<view class='tel' @tap="goLoginTel">手机号注册</view>
 							<LoginOther></LoginOther>
 							<view class='login-go'>
 								<view>已有账号，去登录</view>
-								<image  src="../../static/img/down.png" mode=""></image>
+								<image src="../../static/img/down.png" mode=""></image>
 							</view>
 						</view>
 					</view>
@@ -26,7 +26,7 @@
 					<view class='login-tel'>
 						<view class='tel-main'>
 							<view class='close close-center'>
-								<view>
+								<view @tap="goBack()">
 									<image class='close-img' src="../../static/img/close.png" mode=""></image>
 								</view>
 								<view class='login-go'>
@@ -38,18 +38,18 @@
 							<view class='login-from'>
 								<view class='login-user'>
 									<text class='user-text'>账号</text>
-									<input type="text" value="" placeholder="请输入手机号/昵称" />
+									<input type="text" v-model="username" value="" placeholder="请输入手机号/昵称" />
 								</view>
 								<view class='login-user'>
 									<text class='user-text'>密码</text>
-									<input type="text" value="" placeholder="6-16位字符" />
+									<input type="text" value="" v-model="password" placeholder="6-16位字符" />
 								</view>
 							</view>
 							<view class='login-quick'>
 								<view>忘记密码?</view>
 								<view>免密登录</view>
 							</view>
-							<view class='tel'>登录</view>
+							<view class='tel' @tap="subMit()">登录</view>
 							<view class='reminder'>温馨提示：您可以选择免密登录，更加方便</view>
 							<LoginOther></LoginOther>
 						</view>
@@ -63,17 +63,89 @@
 
 <script>
 	import LoginOther from '@/components/login/login-other.vue'
+	import $http from '@/common/api/request.js'
+	import {mapState,mapActions,mapGetters,mapMutations} from 'vuex'
 	export default {
 		data() {
 			return {
-
+				username: "",
+				password: "",
+				//验证规则
+				rules:{
+					username:{
+						rule:/\S/,
+						msg:"账号不能为空"
+					},
+					password:{
+						rule:/^[0-9a-zA-z]{6,16}$/,
+						msg:"密码为6-16位字符"
+					}
+				}
 			}
 		},
 		components: {
 			LoginOther
 		},
 		methods: {
+			...mapMutations(['login']),
+			goBack() {
+				uni.navigateBack({
+					delta: 1
+				})
+			},
+			//点击登录
+			subMit(){
+				if(!this.validate('username')) return;
+				if(!this.validate('password')) return;
+				uni.showLoading({
+					title:"登录中..."
+				})
+				$http.request({
+					url:"/login",
+					method:"POST",
+					data:{
+						userName:this.username,
+						userPwd:this.password
+					}
+				}).then((res)=>{
+					console.log(res)
+					this.login(res.data)
+					uni.showToast({
+						title:res.msg,
+						icon:'none'
+					})
+					
+					// uni.hideLoading();
+				})
+				setTimeout(()=>{
+					uni.hideLoading();
+					uni.navigateBack({
+						delta:1
+					})
+				},2000)
+			},
+			//验证登录
+			validate(key){
+				let bool=true;
+				console.log(this.rules[key].rule.test(this[key]))
+				if(!this.rules[key].rule.test(this[key])){
+					uni.showToast({
+						title:this.rules[key].msg,
+						icon:"none"
+					})
+					bool=false;
+					return false
+				}
+				return bool;
+			},
+			//手机号注册
+			goLoginTel(){
+				uni.navigateTo({
+					url:"../login-tel/login-tel"
+				})
+			},
 
+				
 		}
 	}
 </script>
