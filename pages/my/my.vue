@@ -6,9 +6,11 @@
 				<view class='header-config' @tap="goConfig()">
 					<image class='config-img' src="../../static/img/config.png" mode=""></image>
 				</view>
-				<view class='header-logo' @tap="goLogin">
-					<image class='logo-img' src="../../static/img/Children.jpg" mode=""></image>
-					<view class='logo-name'>用户昵称</view>
+				<view class='header-logo'>
+					<image class='logo-img' :src="loginStatus?userInfo.imgUrl:'../../static/img/Children.jpg'" mode=""></image>
+					<view class='logo-name'>
+						{{loginStatus?userInfo.nickName:"用户昵称"}}
+					</view>
 				</view>
 			</view>
 		</view>
@@ -74,15 +76,27 @@
 			</view>
 
 		</view>
+		<Tabbar currentPage="my"></Tabbar>
 	</view>
 </template>
 
 <script>
+	import {mapState} from 'vuex'
+	import Tabbar from '@/components/common/Tabbar.vue'
 	export default {
 		data() {
 			return {
 
 			}
+		},
+		components: {
+			Tabbar
+		},
+		computed:{
+			...mapState({
+				loginStatus:state=>state.user.loginStatus,
+				userInfo:state=>state.user.userInfo
+			})
 		},
 		methods: {
 			//跳转订单
@@ -94,11 +108,6 @@
 			goConfig() {
 				uni.navigateTo({
 					url: '../my-config/my-config'
-				})
-			},
-			goLogin(){
-				uni.navigateTo({
-					url:'../login/login'
 				})
 			}
 		}
@@ -145,6 +154,7 @@
 	.logo-name {
 		font-weight: bold;
 		color: #FFFFFF;
+		text-align: center;
 	}
 
 	.order-title {

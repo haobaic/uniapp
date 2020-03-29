@@ -57,13 +57,14 @@
 			<view class="shop-else-list">
 				购物车是空的
 			</view>
-			
 		</template>
+		<Tabbar currentPage="shopcart"></Tabbar>
 	</view>
 </template>
 <script>
 	import uniNavBar from '@/components/uni/uni-nav-bar/uni-nav-bar.vue';
 	import uniNumberBox from '@/components/uni/uni-number-box/uni-number-box.vue'
+	import Tabbar from '@/components/common/Tabbar.vue'
 	import {mapState,mapActions,mapGetters,mapMutations} from 'vuex'
 	export default {
 		data() {
@@ -80,7 +81,8 @@
 		},
 		components: {
 			uniNavBar,
-			uniNumberBox
+			uniNumberBox,
+			Tabbar
 		},
 		methods: {
            ...mapActions(['checkedAllFn','delFGoodsFn']),
@@ -144,7 +146,7 @@
 		border-top: 2rpx solid #F7F7F7;
 		background-color: #FFFFFF;
 		position: fixed;
-		bottom: 0;
+		bottom: 120rpx;
 		left: 0;
 		width: 100%;
 		height: 100rpx;

@@ -23,12 +23,15 @@
 				</view>
 			</scroll-view>
 		</view>
+		<Tabbar currentPage="list"></Tabbar>
 	</view>
 </template>
 
 <script>
 	import Lines from '../../components/common/Lines.vue';
 	import $http from '@/common/api/request.js';
+	import Tabbar from '@/components/common/Tabbar.vue'
+	
 	export default {
 		data() {
 			return {
@@ -40,7 +43,8 @@
 			}
 		},
 		components:{
-			Lines
+			Lines,
+			Tabbar
 		},
 		onReady() {
 			uni.getSystemInfo({
