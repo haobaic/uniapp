@@ -13,7 +13,6 @@
 
 
 
-
 /*每个页面公共css */
 /* 全局css */
 /* 默认字体颜色 */
@@ -23,6 +22,10 @@
 /* 选中字体颜色 */
 .f-active-color{
 	color: #49BDFB;
+}
+/* 默认背景色 */
+.bg-active-color{
+	background-color: #F7F7F7;
 }
 /* 主题色 */
 .bg-color {

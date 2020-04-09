@@ -1,6 +1,5 @@
 {
   "navigationBarTitleText": "商品详情",
-  "scrollIndicator": "none",
   "usingComponents": {
     "card": "/components/common/Card",
     "commodity-list": "/components/common/CommodityList",

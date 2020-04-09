@@ -119,7 +119,7 @@
 
 
 	
-.uni-numbox.data-v-948a80ce {
+.uni-numbox.data-v-389e617f {
 		
 		display: -webkit-box;
 		display: -webkit-flex;
@@ -133,7 +133,7 @@
 		line-height: 35px;
 		width: 120px;
 }
-.uni-numbox__value.data-v-948a80ce {
+.uni-numbox__value.data-v-389e617f {
 		background-color: #ffffff;
 		width: 40px;
 		height: 35px;
@@ -145,7 +145,7 @@
 		border-left-width: 0;
 		border-right-width: 0;
 }
-.uni-numbox__minus.data-v-948a80ce {
+.uni-numbox__minus.data-v-389e617f {
 		
 		display: -webkit-box;
 		display: -webkit-flex;
@@ -177,7 +177,7 @@
 		border-bottom-left-radius: 6rpx;
 		border-right-width: 0;
 }
-.uni-numbox__plus.data-v-948a80ce {
+.uni-numbox__plus.data-v-389e617f {
 		
 		display: -webkit-box;
 		display: -webkit-flex;
@@ -203,11 +203,11 @@
 		background-color: #f8f8f8;
 		border-left-width: 0;
 }
-.uni-numbox--text.data-v-948a80ce {
+.uni-numbox--text.data-v-389e617f {
 		font-size: 40rpx;
 		color: #333;
 }
-.uni-numbox--disabled.data-v-948a80ce {
+.uni-numbox--disabled.data-v-389e617f {
 		color: #c0c0c0;
 }
 

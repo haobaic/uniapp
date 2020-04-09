@@ -1,0 +1,1 @@
+<view class="my-config data-v-3f8d7334"><view data-event-opts="{{[['tap',[['goPathList']]]]}}" class="config-item data-v-3f8d7334" bindtap="__e"><view class="data-v-3f8d7334">地址管理</view><view class="config-mark data-v-3f8d7334">></view></view><view data-event-opts="{{[['tap',[['Outlogin',['$event']]]]]}}" class="my-exit data-v-3f8d7334" bindtap="__e">退出登陆</view></view>

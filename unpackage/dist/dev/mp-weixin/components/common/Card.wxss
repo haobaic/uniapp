@@ -1,5 +1,5 @@
 
-.card.data-v-56a3449d{
+.card.data-v-0c7d5703{
 	padding: 20rpx 0;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -12,7 +12,7 @@
 	        align-items: center;
 	font-weight: bold;
 }
-.card-name.data-v-56a3449d{
+.card-name.data-v-0c7d5703{
 	padding: 0 20rpx;
 	font-size: 32rpx;
 }

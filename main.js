@@ -6,7 +6,6 @@ Vue.prototype.$store=store;
 App.mpType = 'app'
 //权限跳转判断
 Vue.prototype.Tonavigator=(options)=>{
-	console.log()
 	if(!store.state.user.loginStatus){
 		uni.showToast({
 			title:"请先登陆",
@@ -16,7 +15,6 @@ Vue.prototype.Tonavigator=(options)=>{
 			url:"/pages/login/login"
 		})
 	}
-	console.log(123)
 	uni.navigateTo(options)
 }
 const app = new Vue({

@@ -1,25 +1,40 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/main"],[
 /* 0 */
 /*!*****************************************!*\
-  !*** /Users/hbc/Desktop/练习/app/main.js ***!
+  !*** /Users/hbc/项目/uni-app/app/main.js ***!
   \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createApp) {__webpack_require__(/*! uni-pages */ 4);__webpack_require__(/*! @dcloudio/uni-stat */ 5);
+/* WEBPACK VAR INJECTION */(function(uni, createApp) {__webpack_require__(/*! uni-pages */ 4);__webpack_require__(/*! @dcloudio/uni-stat */ 5);
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 9));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
-// import './common/common.css'
+var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 9));
+var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 _vue.default.config.productionTip = false;
-
+_vue.default.prototype.$store = _store.default;
 _App.default.mpType = 'app';
+//权限跳转判断
+_vue.default.prototype.Tonavigator = function (options) {
+  console.log();
+  if (!_store.default.state.user.loginStatus) {
+    uni.showToast({
+      title: "请先登陆",
+      icon: "none" });
 
-var app = new _vue.default(_objectSpread({},
+    return uni.navigateTo({
+      url: "/pages/login/login" });
+
+  }
+  console.log(123);
+  uni.navigateTo(options);
+};
+var app = new _vue.default(_objectSpread({
+  store: _store.default },
 _App.default));
 
 createApp(app).$mount();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createApp"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createApp"]))
 
 /***/ }),
 /* 1 */,
@@ -32,7 +47,7 @@ createApp(app).$mount();
 /* 8 */,
 /* 9 */
 /*!*****************************************!*\
-  !*** /Users/hbc/Desktop/练习/app/App.vue ***!
+  !*** /Users/hbc/项目/uni-app/app/App.vue ***!
   \*****************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -67,13 +82,13 @@ var component = Object(_Applications_HBuilderX_app_Contents_HBuilderX_plugins_un
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "Users/hbc/Desktop/练习/app/App.vue"
+component.options.__file = "Users/hbc/项目/uni-app/app/App.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 /* 10 */
 /*!******************************************************************!*\
-  !*** /Users/hbc/Desktop/练习/app/App.vue?vue&type=script&lang=js& ***!
+  !*** /Users/hbc/项目/uni-app/app/App.vue?vue&type=script&lang=js& ***!
   \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -88,7 +103,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 /* 11 */
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/hbc/Desktop/练习/app/App.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/hbc/项目/uni-app/app/App.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -97,6 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
   onLaunch: function onLaunch() {
+    this.$store.commit('isitUSer');
     console.log('App Launch');
   },
   onShow: function onShow() {
@@ -104,13 +120,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   },
   onHide: function onHide() {
     console.log('App Hide');
-
   } };exports.default = _default;
 
 /***/ }),
 /* 12 */
 /*!**************************************************************************!*\
-  !*** /Users/hbc/Desktop/练习/app/App.vue?vue&type=style&index=0&lang=css& ***!
+  !*** /Users/hbc/项目/uni-app/app/App.vue?vue&type=style&index=0&lang=css& ***!
   \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -125,7 +140,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 /* 13 */
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-1!./node_modules/css-loader??ref--6-oneOf-1-2!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/hbc/Desktop/练习/app/App.vue?vue&type=style&index=0&lang=css& ***!
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-1!./node_modules/css-loader??ref--6-oneOf-1-2!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/hbc/项目/uni-app/app/App.vue?vue&type=style&index=0&lang=css& ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {

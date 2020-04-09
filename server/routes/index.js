@@ -18,25 +18,59 @@ router.all('*', function (req, res, next) {
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+//第三发登录
+router.post('/api/loginother', function(req, res, next) {
+	//前端给后端的数据
+	let params = {
+		provider:req.body.provider,//登录方式
+		openid:req.body.openid,//用户身份id
+		nickName:req.body.nickName,//用户昵称
+		avatarUrl:req.body.avatarUrl//用户头像
+	};
+	//查询数据库中有没有此用户
+	connection.query( user.queryUserName( params ) , function (error, results, fields) {
+		if( results.length > 0){
+			//数据库中存在      : 读取
+			connection.query( user.queryUserName( params ) , function (e, r) {
+				res.send({
+					data:r[0]
+				})
+			})
+		}else{
+			//数据库中[不]存在  : 存储 ==>读取
+			connection.query( user.insertData( params ) , function (er, result) {
+				connection.query( user.queryUserName( params ) , function (e, r) {
+					res.send({
+						data:r[0]
+					})
+				})
+			})
+		}
+	})
+	
+})
 //注册===>增加一条数据
 router.post('/api/addUser', function(req, res, next) {
-    //前端给后端的数据
-    let params = {
-        userName : req.body.userName,
-        userCode : req.body.code
-    };
-    if(  params.userCode == code   ){
-        connection.query( user.insertData( params ) , function (error, results, fields) {
-            res.send({
-                data:{
-                    success:true,
-                    msg:"注册成功"
-                }
-            })
-        })
-    }
-     
-});
+	//前端给后端的数据
+	let params = {
+		userName : req.body.userName,
+		userCode : req.body.code
+	};
+	if(  params.userCode == code   ){
+		connection.query( user.insertData( params ) , function (error, results, fields) {
+			connection.query( user.queryUserName( params ) , function (err, result) {
+				res.send({
+					data:{
+						success:true,
+						msg:"注册成功",
+						data:result[0]
+					}
+				})
+			})
+		})
+	}
+	
+})
 //注册验证手机号是否存在
 router.post('/api/registered', function(req, res, next) {
      
@@ -66,42 +100,43 @@ router.post('/api/registered', function(req, res, next) {
 
 //发送验证码
 router.post('/api/code', function(req, res, next) {
-    //前端给后端的数据
-    let params = {
-        userName : req.body.userName
-    };
-    // 短信应用 SDK AppID
-    var appid = 1400187558;  // SDK AppID 以1400开头
-    // 短信应用 SDK AppKey
-    var appkey = "dc9dc3391896235ddc2325685047edc7";
-    // 需要发送短信的手机号码
-    var phoneNumbers = [params.userName];
-    // 短信模板 ID，需要在短信控制台中申请
-    var templateId = 298000;  // NOTE: 这里的模板ID`7839`只是示例，真实的模板 ID 需要在短信控制台中申请
-    // 签名
-    var smsSign = "三人行慕课";  // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是示例，真实的签名需要在短信控制台申请
-    // 实例化 QcloudSms
-    var qcloudsms = QcloudSms(appid, appkey);
-    // 设置请求回调处理, 这里只是演示，用户需要自定义相应处理回调
-    function callback(err, ress, resData) {
-      if (err) {
-          console.log("err: ", err);
-      } else {
-          code = ress.req.body.params[0];
-          res.send({
-              data:{
-                  success:true,
-                  code:code
-              }
-          })
-      }
-    }
-    var ssender = qcloudsms.SmsSingleSender();
-    var paramss = [  Math.floor( Math.random()*(9999-1000))+1000 ];//发送的验证码
-    ssender.sendWithParam("86", phoneNumbers[0], templateId,
-    paramss, smsSign, "", "", callback); 
-     
+	//前端给后端的数据
+	let params = {
+		userName : req.body.userName
+	};
+	// 短信应用 SDK AppID
+	var appid = 1400187558;  // SDK AppID 以1400开头
+	// 短信应用 SDK AppKey
+	var appkey = "dc9dc3391896235ddc2325685047edc7";
+	// 需要发送短信的手机号码
+	var phoneNumbers = [params.userName];
+	// 短信模板 ID，需要在短信控制台中申请
+	var templateId = 298000;  // NOTE: 这里的模板ID`7839`只是示例，真实的模板 ID 需要在短信控制台中申请
+	// 签名
+	var smsSign = "三人行慕课";  // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是示例，真实的签名需要在短信控制台申请
+	// 实例化 QcloudSms
+	var qcloudsms = QcloudSms(appid, appkey);
+	// 设置请求回调处理, 这里只是演示，用户需要自定义相应处理回调
+	function callback(err, ress, resData) {
+	  if (err) {
+	      console.log("err: ", err);
+	  } else {
+		  code = ress.req.body.params[0];
+	      res.send({
+			  data:{
+				  success:true,
+				  code:code
+			  }
+		  })
+	  }
+	}
+	var ssender = qcloudsms.SmsSingleSender();
+	var paramss = [  Math.floor( Math.random()*(9999-1000))+1000 ];//发送的验证码
+	ssender.sendWithParam("86", phoneNumbers[0], templateId,
+	paramss, smsSign, "", "", callback); 
+	
 })
+
 //用户登录
 router.post('/api/login', function(req, res, next) {
      

@@ -1,19 +1,19 @@
 
-.commodity.data-v-f8c54520{
+.commodity.data-v-69664a6c{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
 }
-.commodity-item.data-v-f8c54520{
+.commodity-item.data-v-69664a6c{
 	padding-bottom: 20rpx;
 }
-.commodity-img.data-v-f8c54520{
+.commodity-img.data-v-69664a6c{
 	width: 100%;
 }
-.commodity-content.data-v-f8c54520{
+.commodity-content.data-v-69664a6c{
 	text-align: center;
 }
-.commodity-name.data-v-f8c54520{
+.commodity-name.data-v-69664a6c{
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
@@ -23,15 +23,15 @@
 	word-break: break-all;
 	padding:6rpx 20rpx;
 }
-.pprice.data-v-f8c54520{
+.pprice.data-v-69664a6c{
 	margin-right:2rpx;
 }
-.oprice.data-v-f8c54520{
+.oprice.data-v-69664a6c{
 	text-decoration: line-through;
 	font-size:24rpx ;
 	color: #999999;
 }
-.discount.data-v-f8c54520{
+.discount.data-v-69664a6c{
 	border-radius: 4rpx;
 	border: 1px solid red;
 	padding: 2rpx 10rpx;

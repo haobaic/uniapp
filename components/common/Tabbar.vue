@@ -54,7 +54,7 @@ export default{
 	methods:{
 		navigatorTo(e){
 			if(e==='shopcart'  ||  e==='my' ){
-				console.log('验证一下');
+				console.log(e);
 				//app.js定义
 				this.Tonavigator({
 					url:`../../pages/${e}/${e}`,

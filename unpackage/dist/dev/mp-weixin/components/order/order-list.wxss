@@ -1,0 +1,29 @@
+
+.goods-content.data-v-37ba357f {
+	padding: 10rpx 20rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.goods-text.data-v-37ba357f {
+	width: 360rpx;
+	padding: 0 10rpx;
+	font-size: 26rpx;
+}
+.goods-img.data-v-37ba357f {
+	width: 160rpx;
+	height: 160rpx;
+}
+.goods-name.data-v-37ba357f {
+	font-size: 26rpx;
+}
+.goods-size.data-v-37ba357f {
+	font-size: 24rpx;
+}
+

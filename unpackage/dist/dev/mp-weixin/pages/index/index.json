@@ -9,6 +9,7 @@
     "banner": "/components/index/Banner",
     "icons": "/components/index/Icons",
     "hot": "/components/index/Hot",
-    "shop": "/components/index/Shop"
+    "shop": "/components/index/Shop",
+    "tabbar": "/components/common/Tabbar"
   }
 }

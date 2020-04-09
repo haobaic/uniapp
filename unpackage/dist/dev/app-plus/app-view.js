@@ -9681,7 +9681,15 @@ var render = function() {
         [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+            {
+              staticClass: _vm._$g(4, "sc"),
+              attrs: { _i: 4 },
+              on: {
+                click: function($event) {
+                  return _vm.$handleViewEvent($event)
+                }
+              }
+            },
             [
               _c("v-uni-image", {
                 attrs: { src: "../../static/img/wx.png", mode: "", _i: 5 }
@@ -9692,10 +9700,18 @@ var render = function() {
           ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+            {
+              staticClass: _vm._$g(7, "sc"),
+              attrs: { _i: 7 },
+              on: {
+                click: function($event) {
+                  return _vm.$handleViewEvent($event)
+                }
+              }
+            },
             [
               _c("v-uni-image", {
-                attrs: { src: "../../static/img/wx.png", mode: "", _i: 8 }
+                attrs: { src: "../../static/img/wb.png", mode: "", _i: 8 }
               }),
               _c("v-uni-view", { attrs: { _i: 9 } }, [_vm._v("微博登录")])
             ],
@@ -9703,10 +9719,18 @@ var render = function() {
           ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
+            {
+              staticClass: _vm._$g(10, "sc"),
+              attrs: { _i: 10 },
+              on: {
+                click: function($event) {
+                  return _vm.$handleViewEvent($event)
+                }
+              }
+            },
             [
               _c("v-uni-image", {
-                attrs: { src: "../../static/img/wx.png", mode: "", _i: 11 }
+                attrs: { src: "../../static/img/wxf.png", mode: "", _i: 11 }
               }),
               _c("v-uni-view", { attrs: { _i: 12 } }, [_vm._v("QQ登录")])
             ],
@@ -9808,7 +9832,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../../Applicat
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*  其他登录方式  */\n.login-other[data-v-52b1d416]{\n\tpadding: 100rpx 0;\n}\n.other-text[data-v-52b1d416]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tpadding:50rpx 0;\n}\n.other-text uni-view[data-v-52b1d416]{\n\tline-height: 0rpx;\n\tpadding:0 10rpx;\n}\n.other-text[data-v-52b1d416]:after{\n\t-webkit-box-flex:1;\n\t-webkit-flex:1;\n\t        flex:1;\n\tcontent: '';\n\theight: 2rpx;\n\tbackground-color: #CCCCCC;\n}\n.other-text[data-v-52b1d416]::before{\n\t-webkit-box-flex:1;\n\t-webkit-flex:1;\n\t        flex:1;\n\tcontent: '';\n\theight: 2rpx;\n\tbackground-color: #CCCCCC;\n}\n.other[data-v-52b1d416]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-justify-content: space-around;\n\t        justify-content: space-around;\n}\n.other-item[data-v-52b1d416]{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: column;\n\t        flex-direction: column;\n\t-webkit-box-pack:center;\n\t-webkit-justify-content:center;\n\t        justify-content:center;\n\t-webkit-box-align: center;\n\t-webkit-align-items: center;\n\t        align-items: center;\n}\n.other-item uni-image[data-v-52b1d416]{\n\twidth:80rpx;\n\theight: 80rpx;\n}\n/*  其他登录方式  end  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*  其他登录方式  */\n.login-other[data-v-52b1d416] {\n\tpadding: 100rpx 0;\n}\n.other-text[data-v-52b1d416] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tpadding: 50rpx 0;\n}\n.other-text uni-view[data-v-52b1d416] {\n\tline-height: 0rpx;\n\tpadding: 0 10rpx;\n}\n.other-text[data-v-52b1d416]:after {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tcontent: '';\n\theight: 2rpx;\n\tbackground-color: #CCCCCC;\n}\n.other-text[data-v-52b1d416]::before {\n\t-webkit-box-flex: 1;\n\t-webkit-flex: 1;\n\t        flex: 1;\n\tcontent: '';\n\theight: 2rpx;\n\tbackground-color: #CCCCCC;\n}\n.other[data-v-52b1d416] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-justify-content: space-around;\n\t        justify-content: space-around;\n}\n.other-item[data-v-52b1d416] {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t-webkit-flex-direction: column;\n\t        flex-direction: column;\n\t-webkit-box-pack: center;\n\t-webkit-justify-content: center;\n\t        justify-content: center;\n\t-webkit-box-align: center;\n\t-webkit-align-items: center;\n\t        align-items: center;\n}\n.other-item uni-image[data-v-52b1d416] {\n\twidth: 80rpx;\n\theight: 80rpx;\n}\n/*  其他登录方式  end  */\n", ""]);
 
 // exports
 
@@ -10372,7 +10396,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../../Applicat
 
 
 // module
-exports.push([module.i, "\n.login-tel[data-v-cfa20668]{\n\twidth: 100vw;\n\theight: 100vh;\n}\n.tel-main[data-v-cfa20668]{\n\tpadding:0 20rpx;\n}\n.login-from[data-v-cfa20668]{\n\tpadding:30rpx 0;\n}\n.login-user[data-v-cfa20668]{\n\tfont-size:32rpx;\n\tpadding:10rpx 0;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t-webkit-align-items: center;\n\t        align-items: center;\n\tborder-bottom:2rpx solid #f7f7f7;\n}\n.user-text[data-v-cfa20668]{\n\tpadding-right:10rpx;\n}\n.tel[data-v-cfa20668]{\n\twidth:100%;\n\theight: 80rpx;\n\tline-height: 80rpx;\n\ttext-align: center;\n\tcolor:#FFFFFF;\n\tbackground-color: #49BDFB;\n\tborder-radius: 40rpx;\n}\n", ""]);
+exports.push([module.i, "\n.login-tel[data-v-cfa20668] {\n\twidth: 100vw;\n\theight: 100vh;\n}\n.tel-main[data-v-cfa20668] {\n\tpadding: 0 20rpx;\n}\n.login-from[data-v-cfa20668] {\n\tpadding: 30rpx 0;\n}\n.login-user[data-v-cfa20668] {\n\tfont-size: 32rpx;\n\tpadding: 10rpx 0;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t-webkit-align-items: center;\n\t        align-items: center;\n\tborder-bottom: 2rpx solid #f7f7f7;\n}\n.user-text[data-v-cfa20668] {\n\tpadding-right: 10rpx;\n}\n.tel[data-v-cfa20668] {\n\twidth: 100%;\n\theight: 80rpx;\n\tline-height: 80rpx;\n\ttext-align: center;\n\tcolor: #FFFFFF;\n\tbackground-color: #49BDFB;\n\tborder-radius: 40rpx;\n}\n", ""]);
 
 // exports
 
