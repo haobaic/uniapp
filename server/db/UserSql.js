@@ -16,14 +16,14 @@ var User = {
     },
     //增加一条用户数据
     insertData( param ){
-        let userName = param.userName || param.openid;
+        let userName = param.userName || param.openid.slice(0,2);
         const jwt = require('jsonwebtoken');
         let payload = {name:userName}; //用户名
         let secret = 'xiaoluxian';//口令
         let token = jwt.sign(payload,secret);
         let nickName = param.nickName || "默认昵称";
         let avatarUrl = param.avatarUrl || "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1736629101,3186546008&fm=15&gp=0.jpg";
-        return 'insert into user (userName,userPwd,phone,imgUrl,nickName,token,provider,openid) values ("admin","1234567","'+param.userName+'","'+avatarUrl+'","'+nickName+'","'+token+'","'+param.provider+'","'+param.openid+'")';
+        return 'insert into user (userName,userPwd,phone,imgUrl,nickName,token,provider,openid) values ("admin","1234567","'+userName+'","'+avatarUrl+'","'+nickName+'","'+token+'","'+param.provider+'","'+param.openid+'")';
     }
 }
  

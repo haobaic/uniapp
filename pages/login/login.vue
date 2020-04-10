@@ -60,7 +60,6 @@
 
 	</view>
 </template>
-
 <script>
 	import LoginOther from '@/components/login/login-other.vue'
 	import $http from '@/common/api/request.js'

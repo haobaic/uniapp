@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var connection = require('../db/sql.js');
 var user = require('../db/UserSql.js');
+var jwt_decode = require('jwt-decode');
+
 //验证码
 let code = '';
 //接入短信的sdk
@@ -18,6 +20,23 @@ router.all('*', function (req, res, next) {
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+//当前用户查询收货地址
+//当前用户查询收货地址
+router.post('/api/selectAddress', function(req, res, next) {
+     
+    let token = req.headers.token;
+    let phone = jwt_decode(token);
+     
+    connection.query(`select * from user WHERE  phone ="oR"`, function (error, results, fields) {
+        console.log(JSON.stringify(error))
+		let id = results[0].id;
+        connection.query(`select * from address WHERE  userId = ${id}`, function (err, result, field) {
+            res.send({
+                data:result
+            })
+        })
+    })
+})
 //第三发登录
 router.post('/api/loginother', function(req, res, next) {
 	//前端给后端的数据

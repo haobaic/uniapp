@@ -15,7 +15,7 @@ Vue.prototype.Tonavigator=(options)=>{
 			url:"/pages/login/login"
 		})
 	}
-	uni.navigateTo(options)
+	uni.redirectTo(options)
 }
 const app = new Vue({
 	store,

@@ -1,57 +1,46 @@
-//地址
-export default{
+export default {
     state:{
-       list:[
-		   {
-			   "name":"hbc",
-			   "tel":"123456789",
-			   "cityName":"北京市昌平区",
-			   "desc":"4号楼",
-			   "isDefault":true
-		   },{
-			   "name":"haob",
-			   "tel":"123456789",
-			   "cityName":"北京市昌平区",
-			   "desc":"6号楼",
-			   "isDefault":false
-		   }
-	   ] 
+        list:[]
     },
     getters:{
-       defaultPath(state){
-		   return state.list.filter(v=>v.isDefault)
-	   }
+        defaultPath(state){
+            return state.list.filter(v=>v.isDefault)
+        }
     },
     mutations:{
-        createPath(state,obj){
-			state.list.unshift(obj)
-		},
-		undatePath(state,{index,item}){
-			for(let key in item){
-				state.list[index][key]=item[key];
-			}
-		},
-		removePath(state,obj){
-			state.list.forEach(v=>{
-				if(v.isDefault){
-					v.isDefault=false;
-				}
-			})
-		},
+        //拿到初始化请求当当前用户收货地址数据
+        __initAddressList(state,list){
+            state.list = list;
+        },
+        createPath( state, obj ){
+            state.list.unshift( obj );
+        },
+        updatePath(state,{index,item}){
+            for( let key in item){
+                state.list[index][key] = item[key];
+            }
+        },
+        //把之前选中的变成未选中
+        removePath(state){
+            state.list.forEach(v=>{
+                if(v.isDefault){
+                    v.isDefault = false;
+                }
+            })
+        }
     },
     actions:{
-		//提交
-       createPathFn({commit},obj){
-		   if(obj.isDefault){
-			   commit('removePath',obj)
-		   }
-		   commit('createPath',obj)
-	   },
-	   undatePathFn({commit},obj){
-		   if(obj.item.isDefault){
-		   		commit('removePath',obj)
-		   }
-		   commit('undatePath',obj)
-	   }
+        createPathFn({commit},obj){
+            if(obj.isDefault){
+                commit("removePath");
+            }
+            commit('createPath',obj);
+        },
+        updatePathFn({commit},obj){
+            if( obj.item.isDefault ){
+                commit("removePath");
+            }
+            commit('updatePath',obj);
+        }
     }
 }
